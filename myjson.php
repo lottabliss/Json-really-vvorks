@@ -19,17 +19,19 @@ $json_response = array();
 
 while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 
-	$row_array['id_cinema'] = $row['id_cinema'];
+	$row_array['cinemaID'] = $row['cinemaID'];
 
-	$row_array['cinema_name'] = $row['cinema_name'];
+	$row_array['cinemaname'] = $row['cinemaname'];
 
 	$row_array['location'] = $row['location'];
 
-	$row_array['screen_size'] = $row['screen_size'];
+	$row_array['metadescription'] = $row['metadescription'];
+	
+	$row_array['metakeywords'] = $row['metakeywords'];
 
 	$row_array['price'] = $row['price'];
 
-	$row_array['building_type'] = $row['building_type'];
+	$row_array['comments'] = $row['comments'];
 
 
 	array_push($json_response, $row_array);
