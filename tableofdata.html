@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+<title>Table of my data</title>
+</head>
+<body>
+<h1>This is from a help file I can't find any more</h1>
+<p>Basically making a table of my data here</p>
+<div id="output"></div>
+
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "myjson.php";
+
+xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        myFunction(xmlhttp.responseText);
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(response) {
+    var arr = JSON.parse(response);
+    var i;
+    var out = "<table>";
+
+    for(i = 0; i < arr.length; i++) {
+        out += "<tr><td>" + 
+        arr[i].id_employee +
+        "</td><td>" +
+        arr[i].emp_name +
+        "</td><td>" +
+        arr[i].designation +
+        "</td></tr>";
+    }
+    out += "</table>"
+    document.getElementById("output").innerHTML = out;
+}
+</script>
+
+</body>
+</html>
